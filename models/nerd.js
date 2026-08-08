@@ -17,7 +17,7 @@ const NerdSchema = new Schema(
   {
        // --- Basic info ---
     name: { type: String, required: true, trim: true },
-    email: {
+    Email_address: {
       type: String,
       required: true,
       trim: true,

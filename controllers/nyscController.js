@@ -5,7 +5,7 @@ const Form = require("../models/nysc");
 // Fields that come in as plain text/body values
 const TEXT_FIELDS = [
     "name",
-     "email",
+     "Email_address",
     "phone",
      "nin",
      "state",

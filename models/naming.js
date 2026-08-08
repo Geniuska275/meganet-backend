@@ -18,7 +18,8 @@ const NamingSchema = new Schema(
      // --- Applicant's choices ---
     first_choice: { type: String, required: true, trim: true },
     second_choice: { type: String, trim: true },
-
+    Email_address: { type: String, required: true, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"] },
+    
     // --- Company info ---
     company_address: { type: String, trim: true },
     company_does: { type: String, trim: true }, // what the company does

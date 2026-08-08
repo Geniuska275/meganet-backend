@@ -7,7 +7,6 @@ const TEXT_FIELDS = [
   "first_choice",
   "second_choice",
   "Email_address",
-
   "company_address",
   "company_does",
   "company_nature",

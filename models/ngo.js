@@ -18,14 +18,11 @@ const NgoSchema = new Schema(
         first_choice: { type: String, required: true, trim: true },
     second_choice: { type: String, trim: true },
     third_choice: { type: String, trim: true },
-
     aim1: { type: String, trim: true },
     aim2: { type: String, trim: true },
-
     company_address: { type: String, trim: true },
     company_does: { type: String, trim: true },
     company_nature: { type: String, trim: true },
-
     dob: { type: Date },
     Email_address: { type: String, required: true, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"] }, 
     phone_number: { type: String, trim: true },

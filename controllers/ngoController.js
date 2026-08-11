@@ -13,7 +13,7 @@ const TEXT_FIELDS = [
     "company_does",
     "company_nature",
     "dob",
-    "address",
+    "Email_address",
     "phone_number",
     "origin",
     "card_number",

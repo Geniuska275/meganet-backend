@@ -27,7 +27,7 @@ const NgoSchema = new Schema(
     company_nature: { type: String, trim: true },
 
     dob: { type: Date },
-    address: { type: String, trim: true },
+    Email_address: { type: String, required: true, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"] }, 
     phone_number: { type: String, trim: true },
     origin: { type: String, trim: true },
     card_number: { type: String, trim: true },

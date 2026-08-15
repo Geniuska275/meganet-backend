@@ -22,7 +22,7 @@ const BusinessSchema = new Schema(
     company_nature: { type: String, trim: true },
 
     dob: { type: Date },
-    email_address: {
+    Email_address: {
       type: String,
       trim: true,
       lowercase: true,

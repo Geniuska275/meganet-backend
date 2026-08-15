@@ -2,6 +2,7 @@ const upload = require('../config/multer');
 const express = require("express");
 const router = express.Router();
 const formUpload = require("../middleware/upload");
+const Business = require('../models/business'); // 👈 this was missing
 const {
   createForm,
   getForms,

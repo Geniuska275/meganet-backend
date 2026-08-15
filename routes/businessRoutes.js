@@ -24,6 +24,7 @@ router.post(
     { name: 'file3', maxCount: 1 },
   ]),
   async (req, res) => {
+    console.log("body:",req.body)
     try {
       const buildFileData = (f) =>
         f
@@ -40,8 +41,9 @@ router.post(
               ...req.body,
               file: buildFileData(req.files.file?.[0]),
               file2: buildFileData(req.files.file2?.[0]),
-        file3: buildFileData(req.files.file3?.[0]),
+              file3: buildFileData(req.files.file3?.[0]),
       });
+      console.log("data:",business)
       
       res.status(201).json({ success: true, data: business });
     } catch (err) {

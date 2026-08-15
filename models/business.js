@@ -16,10 +16,10 @@ const FileMetaSchema = new Schema(
 const BusinessSchema = new Schema(
   {
     first_choice: { type: String, required: true, trim: true },
-    second_choice: { type: String, trim: true },
+    second_choice: { type: String, trim: true ,required: true,},
 
-    business_address: { type: String, trim: true },
-    company_nature: { type: String, trim: true },
+    business_address: { type: String, trim: true,required: true, },
+    company_nature: { type: String, trim: true ,required: true,},
 
     dob: { type: Date },
     Email_address: {
@@ -27,15 +27,16 @@ const BusinessSchema = new Schema(
       trim: true,
       lowercase: true,
       match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"],
+      required: true,
     },
-    phone_number: { type: String, trim: true },
-    origin: { type: String, trim: true },
-    card_number: { type: String, trim: true },
-    home_address: { type: String, trim: true },
-    l_origin: { type: String, trim: true },
+    phone_number: { type: String, trim: true ,required: true,},
+    origin: { type: String, trim: true ,required: true,},
+    card_number: { type: String, trim: true ,required: true,},
+    home_address: { type: String, trim: true ,required: true,},
+    l_origin: { type: String, trim: true ,required: true,},
 
-    file: { type: FileMetaSchema, default: null },
-    file2: { type: FileMetaSchema, default: null },
+    file: { type: FileMetaSchema, default: null ,},
+    file2: { type: FileMetaSchema, default: null ,},
     file3: { type: FileMetaSchema, default: null },
   },
   { timestamps: true }

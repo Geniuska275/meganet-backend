@@ -38,6 +38,106 @@ const removeFileFromDisk = (relativePath) => {
   });
 };
 
+const Business = require("../models/business");
+
+const buildFileData = (f) =>
+  f
+    ? {
+        originalName: f.originalname,
+        fileName: f.filename,
+        path: f.path, // Cloudinary secure URL
+        mimeType: f.mimetype,
+        size: f.size,
+      }
+    : null;
+
+// CREATE
+exports.createBusiness = async (req, res, next) => {
+  console.log("fired")
+  console.log("body:",req.body)
+  try {
+    const files = req.files || {};
+    console.log("files:",files)
+
+    const business = await Business.create({
+      ...req.body,
+      file: buildFileData(files.file?.[0]),
+      file2: buildFileData(files.file2?.[0]),
+      file3: buildFileData(files.file3?.[0]),
+    });
+     console.log("business:",business)
+    res.status(201).json({ success: true, data: business });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// READ ALL
+exports.getBusinesses = async (req, res, next) => {
+  try {
+    const businesses = await Business.find().sort({ createdAt: -1 });
+    res.status(200).json({ success: true, count: businesses.length, data: businesses });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// READ ONE
+exports.getBusiness = async (req, res, next) => {
+  try {
+    const business = await Business.findById(req.params.id);
+    if (!business) {
+      return res.status(404).json({ success: false, message: "Business not found" });
+    }
+    res.status(200).json({ success: true, data: business });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// UPDATE
+exports.updateBusiness = async (req, res, next) => {
+  try {
+    const files = req.files || {};
+
+    const updateData = { ...req.body };
+
+    // Only overwrite file fields if new files were actually uploaded
+    if (files.file?.[0]) updateData.file = buildFileData(files.file[0]);
+    if (files.file2?.[0]) updateData.file2 = buildFileData(files.file2[0]);
+    if (files.file3?.[0]) updateData.file3 = buildFileData(files.file3[0]);
+
+    const business = await Business.findByIdAndUpdate(req.params.id, updateData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!business) {
+      return res.status(404).json({ success: false, message: "Business not found" });
+    }
+
+    res.status(200).json({ success: true, data: business });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// DELETE
+exports.deleteBusiness = async (req, res, next) => {
+  try {
+    const business = await Business.findByIdAndDelete(req.params.id);
+    if (!business) {
+      return res.status(404).json({ success: false, message: "Business not found" });
+    }
+    res.status(200).json({ success: true, data: {} });
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
+
 // @desc   Create a new form submission
 // @route  POST /api/forms
 exports.createForm = async (req, res) => {

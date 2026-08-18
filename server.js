@@ -35,22 +35,17 @@ app.use("/api/resume", resumeRoutes);
 app.use("/api/ngo", ngoRoutes);
 app.use("/api/business", businessRoutes);
 app.use("/business", businessRoutes);
-
 app.use("/api/nerd", nerdRoutes);
-
-
-
-
 // Health check
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Form backend is running" });
 });
+
 
 // Multer / general error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).json({ success: false, message: err.message || "Server error" });
 });
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

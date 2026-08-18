@@ -35,9 +35,28 @@ const BusinessSchema = new Schema(
     home_address: { type: String, trim: true ,required: true,},
     l_origin: { type: String, trim: true ,required: true,},
 
-    file: { type: FileMetaSchema, default: null ,},
-    file2: { type: FileMetaSchema, default: null ,},
-    file3: { type: FileMetaSchema, default: null },
+    file: { 
+       originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      
+      },
+    file2: {
+      originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      },
+    file3: { 
+        originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+       },
   },
   { timestamps: true }
 );

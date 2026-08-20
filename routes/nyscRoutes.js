@@ -124,7 +124,7 @@ router.post(
       });
     }
   })
-router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
+// router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
 
 module.exports = router;
 

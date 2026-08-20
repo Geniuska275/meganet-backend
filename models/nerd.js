@@ -77,8 +77,21 @@ const NerdSchema = new Schema(
     shoe: { type: String, trim: true },
 
     // --- Uploaded files ---
-    file: { type: FileMetaSchema, default: null },
-    file2: { type: FileMetaSchema, default: null },
+     file: { 
+       originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      
+      },
+    file2: {
+      originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      },
   },
   { timestamps: true }
   

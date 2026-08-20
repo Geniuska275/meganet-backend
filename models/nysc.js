@@ -50,9 +50,21 @@ const NyscSchema = new Schema(
     shirt: { type: String, trim: true },
     trouser: { type: String, trim: true },
     shoe: { type: String, trim: true },
-
-    file: { type: FileMetaSchema, default: null },
-    file2: { type: FileMetaSchema, default: null },
+      file: { 
+       originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      
+      },
+    file2: {
+      originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      },
   },
   { timestamps: true }
   

@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../config/upload");
 
-// const formUpload = require("../middleware/upload");
 const {
   createForm,
   getForms,
@@ -135,7 +134,6 @@ router.post(
 
 
 
-// router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
 
 
 

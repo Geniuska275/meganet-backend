@@ -44,7 +44,6 @@ router.post(
     origin,
     card_number,
     home_address,
-    phone_number,
     email_address,
     spoken,
     
@@ -72,7 +71,7 @@ router.post(
     origin,
     card_number,
     home_address,
-    phone_number,
+
     email_address,
     spoken,
     

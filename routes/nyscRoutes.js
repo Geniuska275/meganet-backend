@@ -20,8 +20,7 @@ router.post(
   "/",
      upload.fields([
     { name: "file", maxCount: 1 },
-    { name: "file2", maxCount: 1 },
-    { name: "file3", maxCount: 1 },
+
   ]),
   async (req, res) => {
     try {
@@ -106,15 +105,7 @@ router.post(
               size: req.files.file2[0].size,
             }
           : null,
-          file3: req.files.file3[0]
-          ? {
-              originalName: req.files.file3[0].originalname,
-              fileName: req.files.file3[0].filename,
-              path: req.files.file3[0].path,
-              mimeType: req.files.file3[0].mimetype,
-              size: req.files.file3[0].size,
-            }
-          : null,
+
       });
 
       await application.save();

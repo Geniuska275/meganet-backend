@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const formUpload = require("../middleware/upload");
+const upload = require("../config/upload");
 const {
   createForm,
   getForms,
@@ -9,9 +9,73 @@ const {
   deleteForm,
 } = require("../controllers/personalController");
 
-router.route("/").post(formUpload, createForm).get(getForms);
 
-router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
+const Application = require("../models/personal");
+
+router.post(
+  "/",
+     upload.fields([
+    { name: "file", maxCount: 1 },
+  ]),
+  async (req, res) => {
+    try {
+      const {
+    fullname,
+    Email_address,
+    phone_number,
+    institution,
+    study,
+    destination,
+    website
+      } = req.body;
+
+
+
+      const application = new Application({
+    fullname,
+    Email_address,
+    phone_number,
+    institution,
+    study,
+    destination,
+    website,
+        file: req.files.file[0]
+          ? {
+              originalName: req.files.file[0].originalname,
+              fileName: req.files.file[0].filename,
+              path: req.files.file[0].path,
+              mimeType: req.files.file[0].mimetype,
+              size: req.files.file[0].size,
+            }
+          : null,
+  
+      });
+      
+      await application.save();
+
+      res.status(201).json({
+        success: true,
+        message: "Application submitted successfully",
+        application,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        success: false,
+        message: "Failed to submit application",
+      });
+    }
+  })
+// router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
+const fileFields = upload.fields([
+  { name: "file", maxCount: 1 },
+  { name: "file2", maxCount: 1 },
+  { name: "file3", maxCount: 1 },
+]);
+
+router.route("/").get(getForms);
+
+// router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
 
 module.exports = router;
 

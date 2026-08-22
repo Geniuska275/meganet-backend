@@ -25,7 +25,7 @@ router.post(
     { name: "file3", maxCount: 1 },
   ]),
   async (req, res) => {
-    console.log(req.file)
+  
 
     try {
       const {
@@ -58,9 +58,6 @@ router.post(
        s_origin,
       } = req.body;
 
-      console.log("files:",req.files.file[0])
-      console.log("files:",req.files.file2[0])
-      console.log("files:",req.files.file3[0])
 
 
       const application = new Application({

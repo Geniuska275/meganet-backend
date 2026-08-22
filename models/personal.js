@@ -28,7 +28,14 @@ const PersonalSchema = new Schema(
     study: { type: String, trim: true },
     destination: { type: String, trim: true },
     website: { type: String, trim: true },
-    file: { type: FileMetaSchema, default: null },
+    file:{ 
+           originalName: String,
+           fileName: String,
+           path: String,
+           mime: String,
+           size:Number,
+          
+          },
   },
   { timestamps: true }
 

@@ -34,7 +34,7 @@ app.use("/api/nysc", nyscRoutes);
 app.use("/api/resume", resumeRoutes);
 app.use("/api/ngo", ngoRoutes);
 app.use("/api/business", businessRoutes);
-app.use("/business", businessRoutes);
+
 app.use("/api/nerd", nerdRoutes);
 // Health check
 app.get("/", (req, res) => {

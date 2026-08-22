@@ -10,7 +10,7 @@ const {
   deleteForm,
 } = require("../controllers/formController");
 
-// router.route("/").post(formUpload, createForm).get(getForms);
+router.route("/").get(getForms);
 
 
 const Application = require("../models/naming");

@@ -26,8 +26,8 @@ const NyscSchema = new Schema(
     address: { type: String, trim: true },
     stateBefore: { type: String, trim: true },
 
-    bloodgroup: { type: String, trim: true, enum: ["A+","A-","B+","B-","AB+","AB-","O+","O-",""] },
-    genotype: { type: String, trim: true, enum: ["AA","AS","SS","AC","SC",""] },
+    bloodgroup: { type: String, trim: true, },
+    genotype: { type: String, trim: true },
 
     registration: { type: String, trim: true },
     matric: { type: String, trim: true },

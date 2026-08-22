@@ -11,7 +11,7 @@ const {
   deleteForm,
 } = require("../controllers/nyscController");
 
-router.get(getForms);
+router.route("/").get(getForms);
 
 
 const Application = require("../models/nysc");
@@ -20,7 +20,8 @@ router.post(
   "/",
      upload.fields([
     { name: "file", maxCount: 1 },
-
+    { name: "file2", maxCount: 1 },
+  
   ]),
   async (req, res) => {
     try {
@@ -105,7 +106,7 @@ router.post(
               size: req.files.file2[0].size,
             }
           : null,
-
+        
       });
 
       await application.save();

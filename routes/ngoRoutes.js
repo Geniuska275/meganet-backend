@@ -11,7 +11,7 @@ const {
   deleteForm,
 } = require("../controllers/ngoController");
 
-router.route("/").get(getForms);
+// router.route("/").get(getForms);
 
 
 
@@ -19,14 +19,13 @@ const Application = require("../models/ngo");
 
 router.post(
   "/",
-    upload.fields([
+     upload.fields([
     { name: "file", maxCount: 1 },
     { name: "file2", maxCount: 1 },
-    { name: "file3", maxCount: 1 }
+    { name: "file3", maxCount: 1 },
   ]),
   async (req, res) => {
-    console.log(req.body)
-    console.log(req.files)
+    console.log(req.file)
 
     try {
       const {
@@ -59,6 +58,11 @@ router.post(
        s_origin,
       } = req.body;
 
+      console.log("files:",req.files.file[0])
+      console.log("files:",req.files.file2[0])
+      console.log("files:",req.files.file3[0])
+
+
       const application = new Application({
     first_choice,
     second_choice,
@@ -88,35 +92,35 @@ router.post(
        s_home_address,
        s_origin,
 
-        file: req.file
+        file: req.files.file[0]
           ? {
-              originalName: req.file.originalname,
-              fileName: req.file.filename,
-              path: req.file.path,
-              mimeType: req.file.mimetype,
-              size: req.file.size,
+              originalName: req.files.file[0].originalname,
+              fileName: req.files.file[0].filename,
+              path: req.files.file[0].path,
+              mimeType: req.files.file[0].mimetype,
+              size: req.files.file[0].size,
             }
           : null,
-          file2: req.file
+          file2: req.files.file2[0]
           ? {
-              originalName: req.file.originalname,
-              fileName: req.file.filename,
-              path: req.file.path,
-              mimeType: req.file.mimetype,
-              size: req.file.size,
+              originalName: req.files.file2[0].originalname,
+              fileName: req.files.file2[0].filename,
+              path: req.files.file2[0].path,
+              mimeType: req.files.file2[0].mimetype,
+              size: req.files.file2[0].size,
             }
           : null,
-          file3: req.file
+          file3: req.files.file3[0]
           ? {
-              originalName: req.file.originalname,
-              fileName: req.file.filename,
-              path: req.file.path,
-              mimeType: req.file.mimetype,
-              size: req.file.size,
+              originalName: req.files.file3[0].originalname,
+              fileName: req.files.file3[0].filename,
+              path: req.files.file3[0].path,
+              mimeType: req.files.file3[0].mimetype,
+              size: req.files.file3[0].size,
             }
           : null,
       });
-
+       console.log("application",application)
       await application.save();
 
       res.status(201).json({
@@ -133,5 +137,13 @@ router.post(
     }
   })
 // router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
+const fileFields = upload.fields([
+  { name: "file", maxCount: 1 },
+  { name: "file2", maxCount: 1 },
+  { name: "file3", maxCount: 1 },
+]);
+
+
+router.route("/").get(getForms);
 
 module.exports = router;

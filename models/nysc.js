@@ -15,7 +15,7 @@ const FileMetaSchema = new Schema(
 
 const NyscSchema = new Schema(
   {
-     name: { type: String, required: true, trim: true },
+    name: { type: String, trim: true },
     Email_address: { type: String, required: true, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"] },
     phone: { type: String, trim: true },
     nin: { type: String, trim: true },

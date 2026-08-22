@@ -18,10 +18,6 @@ const Application = require("../models/resume");
 
 router.post(
   "/",
-       upload.fields([
-      { name: "file", maxCount: 1 },
-      { name: "file2", maxCount: 1 },
-    ]),
   async (req, res) => {
     try {
     const {
@@ -74,28 +70,8 @@ router.post(
     card_number,
     home_address,
     email_address,
-    spoken,
-    
-        file: req.files.file[0]
-          ? {
-              originalName: req.files.file[0].originalname,
-              fileName: req.files.file[0].filename,
-              path: req.files.file[0].path,
-              mimeType: req.files.file[0].mimetype,
-              size: req.files.file[0].size,
-            }
-          : null,
-          file2: req.files.file2[0]
-          ? {
-              originalName: req.files.file2[0].originalname,
-              fileName: req.files.file2[0].filename,
-              path: req.files.file2[0].path,
-              mimeType: req.files.file2[0].mimetype,
-              size: req.files.file2[0].size,
-            }
-          : null,
-
-      });
+    spoken, 
+  });
 
       await application.save();
 

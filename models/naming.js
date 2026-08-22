@@ -39,11 +39,27 @@ const NamingSchema = new Schema(
     d_dob: { type: Date },
     d_phone_number: { type: String, trim: true },
     d_origin: { type: String, trim: true },
-
-    // --- Uploaded files ---
-    file: { type: FileMetaSchema, default: null },
-    file2: { type: FileMetaSchema, default: null },
-    file3: { type: FileMetaSchema, default: null },
+     file: { 
+       originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number, 
+      },
+    file2: {
+      originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      },
+    file3: { 
+        originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+       },   
   },
   { timestamps: true }
 );

@@ -15,7 +15,7 @@ const FileMetaSchema = new Schema(
 
 const NgoSchema = new Schema(
   {
-        first_choice: { type: String, required: true, trim: true },
+    first_choice: { type: String, required: true, trim: true },
     second_choice: { type: String, trim: true },
     third_choice: { type: String, trim: true },
     aim1: { type: String, trim: true },
@@ -29,15 +29,12 @@ const NgoSchema = new Schema(
     origin: { type: String, trim: true },
     card_number: { type: String, trim: true },
     home_address: { type: String, trim: true },
-
     ngo_address: { type: String, trim: true },
-
     d_fullname: { type: String, trim: true },
     d_address: { type: String, trim: true },
     d_dob: { type: Date },
     d_phone_number: { type: String, trim: true },
     d_origin: { type: String, trim: true },
-
     s_fullname: { type: String, trim: true },
     s_address: { type: String, trim: true },
     s_dob: { type: Date },
@@ -50,8 +47,7 @@ const NgoSchema = new Schema(
        fileName: String,
        path: String,
        mime: String,
-       size:Number,
-      
+       size:Number, 
       },
     file2: {
       originalName: String,

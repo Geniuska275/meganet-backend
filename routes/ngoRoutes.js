@@ -19,10 +19,15 @@ const Application = require("../models/ngo");
 
 router.post(
   "/",
-  upload.single("file"),
-  upload.single("file2"),
-  upload.single("file3"),
+    upload.fields([
+    { name: "file", maxCount: 1 },
+    { name: "file2", maxCount: 1 },
+    { name: "file3", maxCount: 1 }
+  ]),
   async (req, res) => {
+    console.log(req.body)
+    console.log(req.files)
+
     try {
       const {
     first_choice,
@@ -33,7 +38,7 @@ router.post(
     company_address,
     company_does,
     company_nature,
-     dob,
+     dob=parseDDMMYYYY(dob),
      Email_address,
      phone_number,
      origin,
@@ -41,12 +46,12 @@ router.post(
       home_address,
       ngo_address,
       d_address,
-      d_dob,
+      d_dob=parseDDMMYYYY(d_dob),
       d_fullname,
       d_phone_number,
       d_origin,
       s_address,
-      s_dob,
+      s_dob=parseDDMMYYYY(s_dob),
       s_fullname,
       s_phone_number,
        s_card_number,

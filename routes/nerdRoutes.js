@@ -18,8 +18,10 @@ const Application = require("../models/nerd");
 
 router.post(
   "/",
-  upload.single("file"),
-  upload.single("file2"),
+   upload.fields([
+    { name: "file", maxCount: 1 },
+    { name: "file2", maxCount: 1 },
+  ]),
   async (req, res) => {
     try {
       const {
@@ -85,22 +87,22 @@ router.post(
     tetto,
     level,   
 
-        file: req.file
+          file: req.files.file[0]
           ? {
-              originalName: req.file.originalname,
-              fileName: req.file.filename,
-              path: req.file.path,
-              mimeType: req.file.mimetype,
-              size: req.file.size,
+              originalName: req.files.file[0].originalname,
+              fileName: req.files.file[0].filename,
+              path: req.files.file[0].path,
+              mimeType: req.files.file[0].mimetype,
+              size: req.files.file[0].size,
             }
           : null,
-          file2: req.file
+          file2: req.files.file2[0]
           ? {
-              originalName: req.file.originalname,
-              fileName: req.file.filename,
-              path: req.file.path,
-              mimeType: req.file.mimetype,
-              size: req.file.size,
+              originalName: req.files.file2[0].originalname,
+              fileName: req.files.file2[0].filename,
+              path: req.files.file2[0].path,
+              mimeType: req.files.file2[0].mimetype,
+              size: req.files.file2[0].size,
             }
           : null,
       });

@@ -10,7 +10,7 @@ const {
   deleteForm,
 } = require("../controllers/resumeController");
 
-// router.route("/").post(formUpload, createForm).get(getForms);
+router.route("/").get(getForms);
 
 // router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
 
@@ -18,8 +18,10 @@ const Application = require("../models/resume");
 
 router.post(
   "/",
-  upload.single("file"),
-  upload.single("file2"),
+       upload.fields([
+      { name: "file", maxCount: 1 },
+      { name: "file2", maxCount: 1 },
+    ]),
   async (req, res) => {
     try {
     const {
@@ -50,7 +52,7 @@ router.post(
       } = req.body;
 
       const application = new Application({
-           pto,
+    pto,
     pfrom,
     sfrom,
     sto,
@@ -71,26 +73,25 @@ router.post(
     origin,
     card_number,
     home_address,
-
     email_address,
     spoken,
     
-        file: req.file
+        file: req.files.file[0]
           ? {
-              originalName: req.file.originalname,
-              fileName: req.file.filename,
-              path: req.file.path,
-              mimeType: req.file.mimetype,
-              size: req.file.size,
+              originalName: req.files.file[0].originalname,
+              fileName: req.files.file[0].filename,
+              path: req.files.file[0].path,
+              mimeType: req.files.file[0].mimetype,
+              size: req.files.file[0].size,
             }
           : null,
-          file2: req.file
+          file2: req.files.file2[0]
           ? {
-              originalName: req.file.originalname,
-              fileName: req.file.filename,
-              path: req.file.path,
-              mimeType: req.file.mimetype,
-              size: req.file.size,
+              originalName: req.files.file2[0].originalname,
+              fileName: req.files.file2[0].filename,
+              path: req.files.file2[0].path,
+              mimeType: req.files.file2[0].mimetype,
+              size: req.files.file2[0].size,
             }
           : null,
 
@@ -114,27 +115,3 @@ router.post(
   })
 module.exports = router;
 
-
-
-
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-
-//   const fd = new FormData();
-//   Object.entries(form).forEach(([key, value]) => {
-//     if (["file", "file2", "file3"].includes(key)) {
-//       if (value) fd.append(key, value); // must be a real File object, not ""
-//     } else {
-//       fd.append(key, value);
-//     }
-//   });
-
-//   const res = await fetch("http://localhost:5000/api/forms", {
-//     method: "POST",
-//     body: fd,
-//     // don't set Content-Type yourself — the browser adds the multipart boundary
-//   });
-
-//   const data = await res.json();
-//   console.log(data);
-// };

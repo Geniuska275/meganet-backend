@@ -11,7 +11,7 @@ const {
   deleteForm,
 } = require("../controllers/ngoController");
 
-// router.route("/").post(formUpload, createForm).get(getForms);
+router.route("/").get(getForms);
 
 
 
@@ -126,7 +126,6 @@ router.post(
       });
     } catch (error) {
       console.error(error);
-
       res.status(500).json({
         success: false,
         message: "Failed to submit application",

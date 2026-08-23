@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -27,6 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+console.log("Upload path:", uploadPath);
+console.log("Exists:", fs.existsSync(uploadPath));
+
+if (fs.existsSync(uploadPath)) {
+  console.log("Files:", fs.readdirSync(uploadPath));
+}
 // Routes
 app.use("/api/forms", formRoutes);
 app.use("/api/personal", personalRoutes);

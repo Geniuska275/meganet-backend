@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
+const uploadPath = path.join(__dirname, "uploads/images");
 console.log("Upload path:", uploadPath);
 console.log("Exists:", fs.existsSync(uploadPath));
 

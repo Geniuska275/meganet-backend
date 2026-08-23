@@ -32,7 +32,7 @@ app.get("/check-image", (req, res) => {
     __dirname,
     "uploads",
     "images",
-    "1787237418679-22672290.jpeg"
+    "1787089605176-600569268.png"
   );
 
   res.json({

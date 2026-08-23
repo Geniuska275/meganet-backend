@@ -27,13 +27,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-const uploadPath = path.join(__dirname, "uploads/images");
-console.log("Upload path:", uploadPath);
-console.log("Exists:", fs.existsSync(uploadPath));
+app.get("/check-image", (req, res) => {
+  const filePath = path.join(
+    __dirname,
+    "uploads",
+    "images",
+    "1787237418679-22672290.jpeg"
+  );
 
-if (fs.existsSync(uploadPath)) {
-  console.log("Files:", fs.readdirSync(uploadPath));
-}
+  res.json({
+    filePath: filePath,
+    exists: fs.existsSync(filePath),
+    uploadsExists: fs.existsSync(path.join(__dirname, "uploads")),
+    imagesExists: fs.existsSync(path.join(__dirname, "uploads", "images")),
+    files: fs.existsSync(path.join(__dirname, "uploads", "images"))
+      ? fs.readdirSync(path.join(__dirname, "uploads", "images"))
+      : []
+  });
+});
 // Routes
 app.use("/api/forms", formRoutes);
 app.use("/api/personal", personalRoutes);

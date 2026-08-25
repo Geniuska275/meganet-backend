@@ -46,7 +46,12 @@ const ResumeSchema = new Schema(
     post: { type: String, trim: true },
     to: { type: String, trim: true },
     te: { type: String, trim: true },
+    cost:{
+      type:Number,
+      trim:true
+    },
   },
+  
   { timestamps: true }
 );
 

@@ -36,7 +36,8 @@ router.post(
         origin,
         card_number,
         home_address,
-        l_origin
+        l_origin,
+        cost
       } = req.body;
 
       const application = new Application({
@@ -50,6 +51,7 @@ router.post(
         card_number,
         home_address,
         l_origin,
+        cost
 
         file: req.file
           ? {

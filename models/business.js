@@ -34,7 +34,10 @@ const BusinessSchema = new Schema(
     card_number: { type: String, trim: true ,required: true,},
     home_address: { type: String, trim: true ,required: true,},
     l_origin: { type: String, trim: true ,required: true,},
-
+    cost:{
+      type:Number,
+      trim:true
+    },
     file: { 
        originalName: String,
        fileName: String,

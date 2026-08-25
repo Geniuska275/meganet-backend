@@ -44,7 +44,7 @@ router.post(
     home_address,
     email_address,
     spoken,
-    
+    cost,
       } = req.body;
 
       const application = new Application({
@@ -71,6 +71,7 @@ router.post(
     home_address,
     email_address,
     spoken, 
+    cost,
   });
 
       await application.save();

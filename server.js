@@ -27,25 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.get("/check-image", (req, res) => {
-  const filePath = path.join(
-    __dirname,
-    "uploads",
-    "images",
-    "1787089605176-600569268.png"
-  );
 
-  res.json({
-    filePath: filePath,
-    exists: fs.existsSync(filePath),
-    uploadsExists: fs.existsSync(path.join(__dirname, "uploads")),
-    imagesExists: fs.existsSync(path.join(__dirname, "uploads", "images")),
-    files: fs.existsSync(path.join(__dirname, "uploads", "images"))
-      ? fs.readdirSync(path.join(__dirname, "uploads", "images"))
-      : []
-  });
-});
-// Routes
 app.use("/api/forms", formRoutes);
 app.use("/api/personal", personalRoutes);
 app.use("/api/nysc", nyscRoutes);

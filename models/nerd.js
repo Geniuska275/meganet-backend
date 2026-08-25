@@ -75,6 +75,10 @@ const NerdSchema = new Schema(
     shirt: { type: String, trim: true },
     trouser: { type: String, trim: true },
     shoe: { type: String, trim: true },
+    cost:{
+      type:Number,
+      trim:true
+    },
 
     // --- Uploaded files ---
      file: { 

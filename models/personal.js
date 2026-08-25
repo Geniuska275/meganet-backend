@@ -28,6 +28,10 @@ const PersonalSchema = new Schema(
     study: { type: String, trim: true },
     destination: { type: String, trim: true },
     website: { type: String, trim: true },
+    cost:{
+      type:Number,
+      trim:true
+    },
     file:{ 
            originalName: String,
            fileName: String,

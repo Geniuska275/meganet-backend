@@ -26,7 +26,8 @@ router.post(
     institution,
     study,
     destination,
-    website
+    website,
+    cost,
       } = req.body;
 
 
@@ -39,6 +40,7 @@ router.post(
     study,
     destination,
     website,
+    cost,
         file: req.files.file[0]
           ? {
               originalName: req.files.file[0].originalname,

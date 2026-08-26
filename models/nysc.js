@@ -46,7 +46,9 @@ const NyscSchema = new Schema(
     kinName: { type: String, trim: true },
     kinEmail: { type: String, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid kin email"] },
     kinPhone: { type: String, trim: true },
-
+    tschname: { type: String, trim: true },
+    pschname: { type: String, trim: true },
+    sschname: { type: String, trim: true },
     shirt: { type: String, trim: true },
     trouser: { type: String, trim: true },
     shoe: { type: String, trim: true },

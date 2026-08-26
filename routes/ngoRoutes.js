@@ -56,6 +56,7 @@ router.post(
        s_card_number,
        s_home_address,
        s_origin,
+       cost
       } = req.body;
 
 
@@ -88,6 +89,7 @@ router.post(
        s_card_number,
        s_home_address,
        s_origin,
+       cost,
 
         file: req.files.file[0]
           ? {

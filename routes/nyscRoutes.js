@@ -54,7 +54,11 @@ router.post(
     secto,
     tetfrom,
     tetto,
-    level
+    level,
+    pschname,
+    tschname,
+    sschname,
+    cost
     
       } = req.body;
 
@@ -77,6 +81,9 @@ router.post(
      kinName,
     kinEmail,
     kinPhone,
+    pschname,
+    tschname,
+    sschname,
     shirt,
     trouser,
     shoe,
@@ -88,6 +95,7 @@ router.post(
     tetfrom,
     tetto,
     level,
+    cost,
      file: req.files.file[0]
           ? {
               originalName: req.files.file[0].originalname,

@@ -38,6 +38,7 @@ router.post(
     d_fullname,
     d_phone_number,
     d_origin,
+    cost
       } = req.body;
 
       const application = new Application({
@@ -56,6 +57,7 @@ router.post(
     d_fullname,
     d_phone_number,
     d_origin,
+    cost,
 
         file: req.files.file[0]
           ? {

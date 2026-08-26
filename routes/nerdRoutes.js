@@ -53,7 +53,8 @@ router.post(
     secto,
     tetfrom,
     tetto,
-    level   
+    level,
+    cost  
       } = req.body;
 
       const application = new Application({
@@ -85,7 +86,8 @@ router.post(
     secto,
     tetfrom,
     tetto,
-    level,   
+    level,
+    cost ,  
 
           file: req.files.file[0]
           ? {

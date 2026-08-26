@@ -51,7 +51,7 @@ router.post(
         card_number,
         home_address,
         l_origin,
-        cost
+        cost,
 
         file: req.file
           ? {

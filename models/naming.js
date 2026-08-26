@@ -39,6 +39,10 @@ const NamingSchema = new Schema(
     d_dob: { type: Date },
     d_phone_number: { type: String, trim: true },
     d_origin: { type: String, trim: true },
+    cost:{
+      type:Number,
+      trim:true
+    },
      file: { 
        originalName: String,
        fileName: String,

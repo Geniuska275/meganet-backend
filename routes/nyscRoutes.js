@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../config/upload");
+const uploads = require("../config/uploads");
 
 // const formUpload = require("../middleware/upload");
 const {
@@ -18,7 +18,7 @@ const Application = require("../models/nysc");
 
 router.post(
   "/",
-     upload.fields([
+     uploads.fields([
     { name: "file", maxCount: 1 },
     { name: "file2", maxCount: 1 },
   ]),

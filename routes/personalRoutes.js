@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../config/upload");
+const uploads = require("../config/uploads");
 const {
   createForm,
   getForms,
@@ -14,7 +14,7 @@ const Application = require("../models/personal");
 
 router.post(
   "/",
-     upload.fields([
+     uploads.fields([
     { name: "file", maxCount: 1 },
   ]),
   async (req, res) => {

@@ -68,12 +68,6 @@ router.post(
       });
     }
   })
-// router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
-const fileFields = upload.fields([
-  { name: "file", maxCount: 1 },
-  { name: "file2", maxCount: 1 },
-  { name: "file3", maxCount: 1 },
-]);
 
 router.route("/").get(getForms);
 

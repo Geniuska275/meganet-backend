@@ -16,7 +16,7 @@ const FileMetaSchema = new Schema(
 const NerdSchema = new Schema(
   {
        // --- Basic info ---
-    name: { type: String, required: true, trim: true },
+    firstname: { type: String, required: true, trim: true },
     Email_address: {
       type: String,
       required: true,
@@ -24,57 +24,29 @@ const NerdSchema = new Schema(
       lowercase: true,
       match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"],
     },
-    phone: { type: String, trim: true },
+    PhoneNumber: { type: String, trim: true },
     nin: { type: String, trim: true },
-    dob: { type: Date },
-
-    // --- Location ---
-    state: { type: String, trim: true },
-    lgo: { type: String, trim: true },
+    Dob: { type: Date },
+    State: { type: String, trim: true },
+    Lga: { type: String, trim: true },
     address: { type: String, trim: true },
-    stateBefore: { type: String, trim: true },
+    city: { type: String, trim: true },
+    Phone: { type: String, trim: true },
+    FullName: { type: String, trim: true },
+    Email_Address: { type: String, trim: true },
+    institution: { type: String, trim: true },
+    faculty: { type: String, trim: true },
+    Department: { type: String, trim: true },
+    programmeType: { type: String, trim: true },
+    MatricNumber: { type: String, trim: true },
+    Course: { type: String, trim: true },
+    middlename: { type: String, trim: true },
+    surname: { type: String, trim: true },
+    nationality: { type: String, trim: true },
+    MaritalStatus: { type: String, trim: true },
+    
 
-    // --- Medical ---
-    bloodgroup: {
-      type: String,
-      trim: true,
-      enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", ""],
-    },
-    genotype: {
-      type: String,
-      trim: true,
-      enum: ["AA", "AS", "SS", "AC", "SC", ""],
-    },
-
-    // --- Registration / education ---
-    registration: { type: String, trim: true },
-    matric: { type: String, trim: true },
-    place: { type: String, trim: true },
-    language: { type: String, trim: true },
-    level: { type: String, trim: true },
-
-    prifrom: { type: String, trim: true },
-    prito: { type: String, trim: true },
-    secfrom: { type: String, trim: true },
-    secto: { type: String, trim: true },
-    tetfrom: { type: String, trim: true },
-    tetto: { type: String, trim: true },
-
-    // --- Next of kin ---
-    kinRelationship: { type: String, trim: true },
-    kinName: { type: String, trim: true },
-    kinEmail: {
-      type: String,
-      trim: true,
-      lowercase: true,
-      match: [/^\S+@\S+\.\S+$/, "Please provide a valid kin email"],
-    },
-    kinPhone: { type: String, trim: true },
-
-    // --- Uniform sizes ---
-    shirt: { type: String, trim: true },
-    trouser: { type: String, trim: true },
-    shoe: { type: String, trim: true },
+   
     cost:{
       type:Number,
       trim:true
@@ -90,6 +62,27 @@ const NerdSchema = new Schema(
       
       },
     file2: {
+      originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      },
+       file3: {
+      originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      },
+       file4: {
+      originalName: String,
+       fileName: String,
+       path: String,
+       mime: String,
+       size:Number,
+      },
+       file5: {
       originalName: String,
        fileName: String,
        path: String,

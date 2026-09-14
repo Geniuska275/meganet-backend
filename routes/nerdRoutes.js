@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../config/upload");
+const upload = require("../config/uploads");
 
 // const formUpload = require("../middleware/upload");
 const {
@@ -27,6 +27,7 @@ router.post(
 
   ]),
   async (req, res) => {
+    console.log(req.body)
     try {
       const {
         firstname,
@@ -45,7 +46,6 @@ router.post(
         MatricNumber,
         address,
         Email_address,
-        Email_address,
         faculty,
         Department,
         Course,
@@ -56,7 +56,7 @@ router.post(
       } = req.body;
 
       const application = new Application({
-     firstname,
+        firstname,
         middlename,
         surname,
         sex,
@@ -145,6 +145,6 @@ router.post(
   }
 );
 
-// router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
+router.route("/").get(getForms);
 
 module.exports = router;

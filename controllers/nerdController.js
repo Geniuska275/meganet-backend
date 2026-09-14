@@ -61,6 +61,11 @@ exports.createForm = async (req, res) => {
     if (req.files) {
       if (req.files.file) data.file = buildFileMeta(req.files.file[0]);
       if (req.files.file2) data.file2 = buildFileMeta(req.files.file2[0]);
+      if (req.files.file3) data.file3 = buildFileMeta(req.files.file3[0]);
+      if (req.files.file4) data.file4 = buildFileMeta(req.files.file4[0]);
+      if (req.files.file5) data.file5= buildFileMeta(req.files.file5[0]);
+
+
       
     }
 

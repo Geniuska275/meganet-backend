@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../config/uploads");
+const uploads = require("../config/uploads");
 
 // const formUpload = require("../middleware/upload");
 const {
@@ -15,19 +15,24 @@ const {
 
 
 const Application = require("../models/nerd");
+const parseDob = (value) => {
+  if (!value) return undefined;
+  const [day, month, year] = value.split("/");
+  if (!day || !month || !year) return undefined;
+  const parsed = new Date(`${year}-${month}-${day}`);
+  return isNaN(parsed.getTime()) ? undefined : parsed;
+};
 
 router.post(
   "/",
-   upload.fields([
+   uploads.fields([
     { name: "file", maxCount: 1 },
     { name: "file2", maxCount: 1 },
     { name: "file3", maxCount: 1 },
     { name: "file4", maxCount: 1 },
     { name: "file5", maxCount: 1 },
-
   ]),
   async (req, res) => {
-    console.log(req.body)
     try {
       const {
         firstname,
@@ -54,6 +59,7 @@ router.post(
         programmeType,
         cost  
       } = req.body;
+      console.log("files:",req.files)
 
       const application = new Application({
         firstname,
@@ -80,7 +86,7 @@ router.post(
         FullName,
         programmeType,
         cost,
-        file: req.files.file[0]
+        file: req.files.file?.[0]
           ? {
               originalName: req.files.file[0].originalname,
               fileName: req.files.file[0].filename,
@@ -89,7 +95,7 @@ router.post(
               size: req.files.file[0].size,
             }
           : null,
-          file2: req.files.file2[0]
+          file2: req.files.file2?.[0]
           ? {
               originalName: req.files.file2[0].originalname,
               fileName: req.files.file2[0].filename,
@@ -98,7 +104,7 @@ router.post(
               size: req.files.file2[0].size,
             }
           : null,
-          file3: req.files.file3[0]
+          file3: req.files.file3?.[0]
           ? {
               originalName: req.files.file3[0].originalname,
               fileName: req.files.file3[0].filename,
@@ -107,7 +113,7 @@ router.post(
               size: req.files.file3[0].size,
             }
           : null,
-          file4: req.files.file4[0]
+          file4: req.files.file4?.[0]
           ? {
               originalName: req.files.file4[0].originalname,
               fileName: req.files.file4[0].filename,
@@ -116,7 +122,7 @@ router.post(
               size: req.files.file4[0].size,
             }
           : null,
-          file5: req.files.file5[0]
+          file5: req.files.file5?.[0]
           ? {
               originalName: req.files.file5[0].originalname,
               fileName: req.files.file5[0].filename,
@@ -136,7 +142,6 @@ router.post(
       });
     } catch (error) {
       console.error(error);
-
       res.status(500).json({
         success: false,
         message: "Failed to submit application",

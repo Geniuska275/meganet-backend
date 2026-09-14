@@ -91,4 +91,4 @@ const NerdSchema = new Schema(
   
 );
 
-module.exports = mongoose.model("nerd", NerdSchema);
+module.exports = mongoose.model("realnerd", NerdSchema);

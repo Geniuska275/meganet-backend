@@ -11,7 +11,7 @@ const nyscRoutes = require("./routes/nyscRoutes");
 const resumeRoutes = require("./routes/resumeRoutes");
 const ngoRoutes = require("./routes/ngoRoutes");
 const businessRoutes = require("./routes/businessRoutes");
-const nerdRoutes = require("./routes/businessRoutes");
+const nerdRoutes = require("./routes/nerdRoutes");
 
 
 

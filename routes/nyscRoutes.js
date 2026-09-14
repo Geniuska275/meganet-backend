@@ -23,7 +23,7 @@ router.post(
     { name: "file2", maxCount: 1 },
   ]),
   async (req, res) => {
-    console.log("body:",req.body)
+   
     try {
       const {
     name,

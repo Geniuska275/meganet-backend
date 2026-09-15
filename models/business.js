@@ -19,6 +19,8 @@ const BusinessSchema = new Schema(
     second_choice: { type: String, required: true, trim: true },
     business_address: { type: String, trim: true,required: true, },
     company_nature: { type: String, trim: true ,required: true,},
+    fullname: { type: String, trim: true ,required: true,},
+
     dob: { type: Date },
     Email_address: {
       type: String,

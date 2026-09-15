@@ -118,7 +118,7 @@ router.post(
 
 
 
-router.route("/").post(fileFields, createBusiness).get(getBusinesses);
+router.route("/").get(getBusinesses);
 
 
 module.exports = router;

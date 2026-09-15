@@ -14,6 +14,12 @@ const TEXT_FIELDS = [
     "origin",
     "card_number",
     "home_address",
+    "dob2",
+    "Email_address2",
+    "phone_number2",
+    "origin2",
+    "card_number2",
+    "home_address2",
     "l_origin",
     
 ];

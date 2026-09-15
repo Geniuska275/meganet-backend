@@ -14,41 +14,50 @@ const FileMetaSchema = new Schema(
 );
 
 const NamingSchema = new Schema(
-  {
-     // --- Applicant's choices ---
+ {
     first_choice: { type: String, required: true, trim: true },
-    second_choice: { type: String, trim: true },
-    Email_address: { type: String, required: true, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"] },
-    
-    // --- Company info ---
-    company_address: { type: String, trim: true },
-    company_does: { type: String, trim: true }, // what the company does
-    company_nature: { type: String, trim: true }, // nature of the company
+    fullname: { type: String, required: true, trim: true },
+    fullname2: { type: String, required: true, trim: true },
 
-    // --- Applicant personal info ---
+    second_choice: { type: String, trim: true ,required: true,},
+    business_address: { type: String, trim: true,required: true, },
+    company_nature: { type: String, trim: true ,required: true,},
     dob: { type: Date },
-    address: { type: String, trim: true },
-    phone_number: { type: String, trim: true },
-    origin: { type: String, trim: true },
-    card_number: { type: String, trim: true },
-    home_address: { type: String, trim: true },
-
-    // --- Dependent ("d_") info ---
-    d_fullname: { type: String, trim: true },
-    d_address: { type: String, trim: true },
-    d_dob: { type: Date },
-    d_phone_number: { type: String, trim: true },
-    d_origin: { type: String, trim: true },
+    dob2: { type: Date },
+    Email_address: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"],
+      required: true,
+    },
+    phone_number: { type: String, trim: true ,required: true,},
+    origin: { type: String, trim: true ,required: true,},
+    card_number: { type: String, trim: true ,required: true,},
+    home_address: { type: String, trim: true ,required: true,},
+    Email_address2: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"],
+      required: true,
+    },
+    phone_number2: { type: String, trim: true ,required: true,},
+    origin2: { type: String, trim: true ,required: true,},
+    card_number2: { type: String, trim: true ,required: true,},
+    home_address2: { type: String, trim: true ,required: true,},
+    l_origin: { type: String, trim: true ,required: true,},
     cost:{
       type:Number,
       trim:true
     },
-     file: { 
+    file: { 
        originalName: String,
        fileName: String,
        path: String,
        mime: String,
-       size:Number, 
+       size:Number,
+      
       },
     file2: {
       originalName: String,
@@ -63,7 +72,7 @@ const NamingSchema = new Schema(
        path: String,
        mime: String,
        size:Number,
-       },   
+       },
   },
   { timestamps: true }
 );

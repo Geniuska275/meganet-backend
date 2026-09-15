@@ -16,6 +16,9 @@ const FileMetaSchema = new Schema(
 const BusinessSchema = new Schema(
   {
     first_choice: { type: String, required: true, trim: true },
+    fullname: { type: String, required: true, trim: true },
+    fullname2: { type: String, required: true, trim: true },
+
     second_choice: { type: String, trim: true ,required: true,},
     business_address: { type: String, trim: true,required: true, },
     company_nature: { type: String, trim: true ,required: true,},

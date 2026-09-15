@@ -32,6 +32,7 @@ router.post(
         first_choice,
         second_choice,
         business_address,
+        dob,
         dob2,
         Email_address,
         phone_number,

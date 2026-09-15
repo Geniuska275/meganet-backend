@@ -116,11 +116,6 @@ router.post(
 
 
 
-const fileFields = upload.fields([
-  { name: "file", maxCount: 1 },
-  { name: "file2", maxCount: 1 },
-  { name: "file3", maxCount: 1 },
-]);
 
 
 router.route("/").post(fileFields, createBusiness).get(getBusinesses);

@@ -46,7 +46,7 @@ const NamingSchema = new Schema(
     origin2: { type: String, trim: true ,required: true,},
     card_number2: { type: String, trim: true ,required: true,},
     home_address2: { type: String, trim: true ,required: true,},
-    l_origin: { type: String, trim: true ,required: true,},
+
      d_address: { type: String, trim: true ,required: true,},
      d_dob :{ type: Date},
     d_fullname: { type: String, trim: true ,required: true,},

@@ -16,14 +16,10 @@ const FileMetaSchema = new Schema(
 const BusinessSchema = new Schema(
   {
     first_choice: { type: String, required: true, trim: true },
-    fullname: { type: String, required: true, trim: true },
-    fullname2: { type: String, required: true, trim: true },
-
-    second_choice: { type: String, trim: true ,required: true,},
+    second_choice: { type: String, required: true, trim: true },
     business_address: { type: String, trim: true,required: true, },
     company_nature: { type: String, trim: true ,required: true,},
     dob: { type: Date },
-    dob2: { type: Date },
     Email_address: {
       type: String,
       trim: true,
@@ -35,17 +31,6 @@ const BusinessSchema = new Schema(
     origin: { type: String, trim: true ,required: true,},
     card_number: { type: String, trim: true ,required: true,},
     home_address: { type: String, trim: true ,required: true,},
-    Email_address2: {
-      type: String,
-      trim: true,
-      lowercase: true,
-      match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"],
-      required: true,
-    },
-    phone_number2: { type: String, trim: true ,required: true,},
-    origin2: { type: String, trim: true ,required: true,},
-    card_number2: { type: String, trim: true ,required: true,},
-    home_address2: { type: String, trim: true ,required: true,},
     l_origin: { type: String, trim: true ,required: true,},
     cost:{
       type:Number,

@@ -23,9 +23,9 @@ router.post(
     { name: "file3", maxCount: 1 },
   ]),
   async (req, res) => {
-    try {
+     try {
       const {
-    first_choice,
+        first_choice,
         second_choice,
         business_address,
         fullname,
@@ -42,6 +42,11 @@ router.post(
         origin2,
         card_number2,
         home_address2,
+        d_address,
+        d_dob,
+        d_fullname,
+        d_phone_number,
+        d_origin,
         l_origin,
         company_nature,
         cost
@@ -66,6 +71,11 @@ router.post(
         card_number2,
         home_address2,
         company_nature,
+         d_address,
+        d_dob,
+        d_fullname,
+        d_phone_number,
+        d_origin,
         l_origin,
         cost,
         file: req.files.file[0]

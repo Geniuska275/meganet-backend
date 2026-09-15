@@ -20,7 +20,7 @@ const {
 const Application = require("../models/business");
 
 router.post(
-  "/business",
+  "/",
   uploads.fields([
      { name: "file", maxCount: 1 },
      { name: "file2", maxCount: 1 },
@@ -30,6 +30,7 @@ router.post(
     try {
       const {
        first_choice,
+       fullname,
         second_choice,
         dob,
         Email_address,
@@ -44,6 +45,7 @@ router.post(
       const application = new Application({
         first_choice,
         second_choice,
+        fullname,
         dob,
         Email_address,
         phone_number,

@@ -27,10 +27,13 @@ router.post(
      { name: "file3", maxCount: 1 },
    ]),
   async (req, res) => {
+    console.log(req.body)
     try {
       const {
        first_choice,
        fullname,
+       company_nature,
+       business_address,
         second_choice,
         dob,
         Email_address,
@@ -46,6 +49,8 @@ router.post(
         first_choice,
         second_choice,
         fullname,
+        company_nature,
+        business_address,
         dob,
         Email_address,
         phone_number,

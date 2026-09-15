@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../config/upload");
+const uploads = require("../config/uploads");
 // const formUpload = require("../middleware/upload");
 const Business = require('../models/business'); // 👈 this was missing
 const {
@@ -21,9 +21,11 @@ const Application = require("../models/business");
 
 router.post(
   "/business",
-  upload.single("file"),
-  upload.single("file2"),
-  upload.single("file3"),
+  uploads.fields([
+     { name: "file", maxCount: 1 },
+     { name: "file2", maxCount: 1 },
+     { name: "file3", maxCount: 1 },
+   ]),
   async (req, res) => {
     try {
       const {

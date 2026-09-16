@@ -44,6 +44,9 @@ router.post(
     home_address,
     email_address,
     spoken,
+    tertiary,
+    primary,
+    secondary,
     cost,
       } = req.body;
 
@@ -71,6 +74,9 @@ router.post(
     home_address,
     email_address,
     spoken, 
+    tertiary,
+    secondary,
+    primary,
     cost,
   });
 

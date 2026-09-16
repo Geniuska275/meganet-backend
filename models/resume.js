@@ -31,7 +31,10 @@ const ResumeSchema = new Schema(
     home_address: { type: String, trim: true },
     hobby: { type: String, trim: true },
     spoken: { type: String, trim: true },
-
+    spoken: { type: String, trim: true },
+    primary:{ type: String, trim: true },
+    secondary:{ type: String, trim: true },
+    tertiary:{ type: String, trim: true },
     pfrom: { type: String, trim: true },
     pto: { type: String, trim: true },
     sfrom: { type: String, trim: true },

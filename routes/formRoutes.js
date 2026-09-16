@@ -19,9 +19,7 @@ const Application = require("../models/naming");
 
 router.post(
   "/",
-upload.fields([
-    { name: "file", maxCount: 1 },
-  ]),
+ upload.single("file"),
  uploads.fields([
     { name: "file2", maxCount: 1 },
     { name: "file3", maxCount: 1 },

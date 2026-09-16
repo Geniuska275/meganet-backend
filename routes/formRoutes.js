@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const uploads = require("../config/uploads");
+const upload = require("../config/upload");
+
 
 const {
   createForm,
@@ -17,8 +19,10 @@ const Application = require("../models/naming");
 
 router.post(
   "/",
- uploads.fields([
+upload.fields([
     { name: "file", maxCount: 1 },
+  ]),
+ uploads.fields([
     { name: "file2", maxCount: 1 },
     { name: "file3", maxCount: 1 },
   ]),
@@ -47,7 +51,7 @@ router.post(
         d_fullname,
         d_phone_number,
         d_origin,
-        l_origin,
+   
         company_nature,
         cost
       } = req.body;
@@ -76,7 +80,7 @@ router.post(
         d_fullname,
         d_phone_number,
         d_origin,
-        l_origin,
+  
         cost,
         file: req.files.file[0]
           ? {

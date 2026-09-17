@@ -15,7 +15,7 @@ const FileMetaSchema = new Schema(
 
 const ResumeSchema = new Schema(
   {
-   fullname: { type: String, required: true, trim: true },
+    fullname: { type: String, required:true, trim: true },
     gender: { type: String, trim: true },
     dob: { type: Date },
     l_origin: { type: String, trim: true },
@@ -31,7 +31,6 @@ const ResumeSchema = new Schema(
     home_address: { type: String, trim: true },
     hobby: { type: String, trim: true },
     spoken: { type: String, trim: true },
-    spoken: { type: String, trim: true },
     primary:{ type: String, trim: true },
     secondary:{ type: String, trim: true },
     tertiary:{ type: String, trim: true },
@@ -41,10 +40,8 @@ const ResumeSchema = new Schema(
     sto: { type: String, trim: true },
     tfrom: { type: String, trim: true },
     tto: { type: String, trim: true },
-
     qualification: { type: String, trim: true },
     tqualification: { type: String, trim: true },
-
     company: { type: String, trim: true },
     post: { type: String, trim: true },
     to: { type: String, trim: true },
@@ -54,7 +51,6 @@ const ResumeSchema = new Schema(
       trim:true
     },
   },
-  
   { timestamps: true }
 );
 

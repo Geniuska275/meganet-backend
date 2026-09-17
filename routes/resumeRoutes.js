@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../config/upload");
-// const formUpload = require("../middleware/upload");
 const {
   createForm,
   getForms,
@@ -19,6 +17,7 @@ const Application = require("../models/resume");
 router.post(
   "/",
   async (req, res) => {
+    console.log(req.body)
     try {
     const {
     pto,
@@ -49,7 +48,7 @@ router.post(
     secondary,
     cost,
       } = req.body;
-
+     console.log(req.body)
       const application = new Application({
     pto,
     pfrom,

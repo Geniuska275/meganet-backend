@@ -80,7 +80,6 @@ router.post(
   });
 
       await application.save();
-
       res.status(201).json({
         success: true,
         message: "Application submitted successfully",

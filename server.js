@@ -12,6 +12,8 @@ const resumeRoutes = require("./routes/resumeRoutes");
 const ngoRoutes = require("./routes/ngoRoutes");
 const businessRoutes = require("./routes/businessRoutes");
 const nerdRoutes = require("./routes/nerdRoutes");
+const resRoutes = require("./routes/resRoutes");
+
 
 
 
@@ -34,6 +36,8 @@ app.use("/api/resume", resumeRoutes);
 app.use("/api/ngo", ngoRoutes);
 app.use("/api/business", businessRoutes);
 app.use("/api/nerd", nerdRoutes);
+app.use("/api/res", resRoutes);
+
 // Health check
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "Form backend is running" });

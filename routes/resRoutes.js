@@ -1,0 +1,101 @@
+const express = require("express");
+const router = express.Router();
+
+const {
+  createForm,
+  getForms,
+  getForm,
+  updateForm,
+  deleteForm,
+} = require("../controllers/resumeController");
+
+
+const Application = require("../models/resume");
+
+router.post(
+  "/",
+
+  async (req, res) => {
+     console.log("body:",req.body)
+     try {
+          const {
+            pto,
+        pfrom,
+        sfrom,
+        sto,
+        tfrom,
+        tto,
+        qualification,
+        tqualification,
+        company,
+        fullname,
+        gender,
+        l_origin,
+        dob,
+        to,
+        te,
+        hobby,
+        post,
+        phone_number,
+        origin,
+        card_number,
+        home_address,
+        email_address,
+        spoken,
+        tertiary,
+        primary,
+        secondary,
+        cost,
+      } = req.body;
+          const application = new Application({
+        pto,
+        pfrom,
+        sfrom,
+        sto,
+        tfrom,
+        tto,
+        qualification,
+        tqualification,
+        company,
+        fullname,
+        gender,
+        l_origin,
+        dob,
+        to,
+        te,
+        hobby,
+        post,
+        phone_number,
+        origin,
+        card_number,
+        home_address,
+        email_address,
+        spoken, 
+        tertiary,
+        secondary,
+        primary,
+        cost,
+      });
+    
+          await application.save();
+          res.status(201).json({
+            success: true,
+            message: "Application submitted successfully",
+            application,
+          });
+        } catch (error) {
+          console.error(error);
+    
+          res.status(500).json({
+            success: false,
+            message: "Failed to submit application",
+          });
+        }
+  })
+
+router.route("/").get(getForms);
+
+// router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
+
+module.exports = router;
+

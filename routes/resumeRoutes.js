@@ -8,7 +8,6 @@ const {
   deleteForm,
 } = require("../controllers/resumeController");
 
-router.route("/").get(getForms);
 
 // router.route("/:id").get(getForm).put(formUpload, updateForm).delete(deleteForm);
 
@@ -17,10 +16,10 @@ const Application = require("../models/resume");
 router.post(
   "/",
   async (req, res) => {
-    console.log(req.body)
+    console.log("body:", req.body)
     try {
-    const {
-    pto,
+      const {
+        pto,
     pfrom,
     sfrom,
     sto,
@@ -47,8 +46,7 @@ router.post(
     primary,
     secondary,
     cost,
-      } = req.body;
-     console.log(req.body)
+  } = req.body;
       const application = new Application({
     pto,
     pfrom,
@@ -94,5 +92,6 @@ router.post(
       });
     }
   })
-module.exports = router;
+  router.route("/").get(getForms);
+  module.exports = router;
 

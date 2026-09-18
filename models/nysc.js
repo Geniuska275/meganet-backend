@@ -44,7 +44,8 @@ const NyscSchema = new Schema(
 
     kinRelationship: { type: String, trim: true },
     kinName: { type: String, trim: true },
-    kinEmail: { type: String, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid kin email"] },
+    kin_address: { type: String, trim: true },
+    contact: { type: String, trim: true },
     kinPhone: { type: String, trim: true },
     tschname: { type: String, trim: true },
     pschname: { type: String, trim: true },
@@ -52,28 +53,28 @@ const NyscSchema = new Schema(
     shirt: { type: String, trim: true },
     trouser: { type: String, trim: true },
     shoe: { type: String, trim: true },
-    cost:{
-      type:Number,
-      trim:true
+    cost: {
+      type: Number,
+      trim: true
     },
-      file: { 
-       originalName: String,
-       fileName: String,
-       path: String,
-       mime: String,
-       size:Number,
-      
-      },
+    file: {
+      originalName: String,
+      fileName: String,
+      path: String,
+      mime: String,
+      size: Number,
+
+    },
     file2: {
       originalName: String,
-       fileName: String,
-       path: String,
-       mime: String,
-       size:Number,
-      },
+      fileName: String,
+      path: String,
+      mime: String,
+      size: Number,
+    },
   },
   { timestamps: true }
-  
+
 );
 
 module.exports = mongoose.model("nysc", NyscSchema);

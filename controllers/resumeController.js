@@ -28,6 +28,10 @@ const TEXT_FIELDS = [
     "phone_number",
     "email_address",
     "spoken",
+    "cost",
+    "tertiary",
+    "primary",
+    "secondary"
 ];
 
 const buildFileMeta = (file) => {

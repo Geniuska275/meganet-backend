@@ -60,6 +60,10 @@ router.post(
         pschname,
         tschname,
         sschname,
+        E_phone,
+        E_address,
+        E_Relationship,
+        E_name,
         cost
 
       } = req.body;
@@ -98,6 +102,10 @@ router.post(
         tetfrom,
         tetto,
         level,
+        E_phone,
+        E_address,
+        E_Relationship,
+        E_name,
         cost,
         file: req.files.file[0]
           ? {

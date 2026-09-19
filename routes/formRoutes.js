@@ -20,13 +20,13 @@ const Application = require("../models/naming");
 router.post(
   "/",
 
- uploads.fields([
+  uploads.fields([
     { name: "file", maxCount: 1 },
     { name: "file2", maxCount: 1 },
     { name: "file3", maxCount: 1 },
   ]),
   async (req, res) => {
-     try {
+    try {
       const {
         first_choice,
         second_choice,
@@ -50,13 +50,16 @@ router.post(
         d_fullname,
         d_phone_number,
         d_origin,
-   
         company_nature,
+        l_origin,
+        s_dob,
+        s_card_number,
+        s_home_address,
         cost
       } = req.body;
 
       const application = new Application({
-      first_choice,
+        first_choice,
         second_choice,
         business_address,
         fullname,
@@ -74,39 +77,42 @@ router.post(
         card_number2,
         home_address2,
         company_nature,
-         d_address,
+        d_address,
         d_dob,
         d_fullname,
         d_phone_number,
         d_origin,
-  
+        l_origin,
+        s_dob,
+        s_card_number,
+        s_home_address,
         cost,
         file: req.files.file[0]
           ? {
-              originalName: req.files.file[0].originalname,
-              fileName: req.files.file[0].filename,
-              path: req.files.file[0].path,
-              mimeType: req.files.file[0].mimetype,
-              size: req.files.file[0].size,
-            }
+            originalName: req.files.file[0].originalname,
+            fileName: req.files.file[0].filename,
+            path: req.files.file[0].path,
+            mimeType: req.files.file[0].mimetype,
+            size: req.files.file[0].size,
+          }
           : null,
-          file2: req.files.file2[0]
+        file2: req.files.file2[0]
           ? {
-              originalName: req.files.file2[0].originalname,
-              fileName: req.files.file2[0].filename,
-              path: req.files.file2[0].path,
-              mimeType: req.files.file2[0].mimetype,
-              size: req.files.file2[0].size,
-            }
+            originalName: req.files.file2[0].originalname,
+            fileName: req.files.file2[0].filename,
+            path: req.files.file2[0].path,
+            mimeType: req.files.file2[0].mimetype,
+            size: req.files.file2[0].size,
+          }
           : null,
-          file3: req.files.file3[0]
+        file3: req.files.file3[0]
           ? {
-              originalName: req.files.file3[0].originalname,
-              fileName: req.files.file3[0].filename,
-              path: req.files.file3[0].path,
-              mimeType: req.files.file3[0].mimetype,
-              size: req.files.file3[0].size,
-            }
+            originalName: req.files.file3[0].originalname,
+            fileName: req.files.file3[0].filename,
+            path: req.files.file3[0].path,
+            mimeType: req.files.file3[0].mimetype,
+            size: req.files.file3[0].size,
+          }
           : null,
       });
 

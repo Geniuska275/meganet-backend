@@ -21,6 +21,10 @@ const TEXT_FIELDS = [
   "d_fullname",
   "d_phone_number",
   "d_origin",
+  "s_dob",
+  "s_card_number",
+  "s_home_address",
+  "l_origin"
 ];
 
 const buildFileMeta = (file) => {

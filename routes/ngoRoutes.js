@@ -19,107 +19,113 @@ const Application = require("../models/ngo");
 
 router.post(
   "/",
-     uploads.fields([
+  uploads.fields([
     { name: "file", maxCount: 1 },
     { name: "file2", maxCount: 1 },
     { name: "file3", maxCount: 1 },
   ]),
   async (req, res) => {
-  
+
 
     try {
       const {
-    first_choice,
-    second_choice,
-    third_choice,
-    aim1,
-    aim2,
-    company_address,
-    company_does,
-    company_nature,
-     dob=parseDDMMYYYY(dob),
-     Email_address,
-     phone_number,
-     origin,
-     card_number,
-      home_address,
-      ngo_address,
-      d_address,
-      d_dob=parseDDMMYYYY(d_dob),
-      d_fullname,
-      d_phone_number,
-      d_origin,
-      s_address,
-      s_dob=parseDDMMYYYY(s_dob),
-      s_fullname,
-      s_phone_number,
-       s_card_number,
-       s_home_address,
-       s_origin,
-       cost
+        first_choice,
+        second_choice,
+        third_choice,
+        aim1,
+        aim2,
+        company_address,
+        company_does,
+        company_nature,
+        dob = parseDDMMYYYY(dob),
+        Email_address,
+        phone_number,
+        origin,
+        card_number,
+        home_address,
+        ngo_address,
+        d_address,
+        d_dob = parseDDMMYYYY(d_dob),
+        d_fullname,
+        d_phone_number,
+        d_origin,
+        s_address,
+        s_dob = parseDDMMYYYY(s_dob),
+        s_fullname,
+        s_phone_number,
+        s_card_number,
+        s_home_address,
+        d_home_address,
+        d_card_number,
+
+
+        s_origin,
+        cost
       } = req.body;
 
 
 
       const application = new Application({
-    first_choice,
-    second_choice,
-    third_choice,
-    aim1,
-    aim2,
-    company_address,
-    company_does,
-    company_nature,
-     dob,
-     Email_address,
-     phone_number,
-     origin,
-     card_number,
-      home_address,
-      ngo_address,
-      d_address,
-      d_dob,
-      d_fullname,
-      d_phone_number,
-      d_origin,
-      s_address,
-      s_dob,
-      s_fullname,
-      s_phone_number,
-       s_card_number,
-       s_home_address,
-       s_origin,
-       cost,
+        first_choice,
+        second_choice,
+        third_choice,
+        aim1,
+        aim2,
+        company_address,
+        company_does,
+        company_nature,
+        dob,
+        Email_address,
+        phone_number,
+        origin,
+        card_number,
+        home_address,
+        ngo_address,
+        d_address,
+        d_dob,
+        d_fullname,
+        d_phone_number,
+        d_origin,
+        s_address,
+        s_dob,
+        s_fullname,
+        s_phone_number,
+        s_card_number,
+        s_home_address,
+        d_home_address,
+        d_card_number,
+        s_origin,
+        cost,
 
         file: req.files.file[0]
           ? {
-              originalName: req.files.file[0].originalname,
-              fileName: req.files.file[0].filename,
-              path: req.files.file[0].path,
-              mimeType: req.files.file[0].mimetype,
-              size: req.files.file[0].size,
-            }
+            originalName: req.files.file[0].originalname,
+            fileName: req.files.file[0].filename,
+            path: req.files.file[0].path,
+            mimeType: req.files.file[0].mimetype,
+            size: req.files.file[0].size,
+          }
           : null,
-          file2: req.files.file2[0]
+        file2: req.files.file2[0]
           ? {
-              originalName: req.files.file2[0].originalname,
-              fileName: req.files.file2[0].filename,
-              path: req.files.file2[0].path,
-              mimeType: req.files.file2[0].mimetype,
-              size: req.files.file2[0].size,
-            }
+            originalName: req.files.file2[0].originalname,
+            fileName: req.files.file2[0].filename,
+            path: req.files.file2[0].path,
+            mimeType: req.files.file2[0].mimetype,
+            size: req.files.file2[0].size,
+          }
           : null,
-          file3: req.files.file3[0]
+        file3: req.files.file3[0]
           ? {
-              originalName: req.files.file3[0].originalname,
-              fileName: req.files.file3[0].filename,
-              path: req.files.file3[0].path,
-              mimeType: req.files.file3[0].mimetype,
-              size: req.files.file3[0].size,
-            }
+            originalName: req.files.file3[0].originalname,
+            fileName: req.files.file3[0].filename,
+            path: req.files.file3[0].path,
+            mimeType: req.files.file3[0].mimetype,
+            size: req.files.file3[0].size,
+          }
           : null,
       });
-       console.log("application",application)
+      console.log("application", application)
       await application.save();
 
       res.status(201).json({
@@ -139,7 +145,7 @@ router.post(
 
 
 
-  
+
 router.route("/").get(getForms);
 
 module.exports = router;

@@ -41,6 +41,8 @@ const NgoSchema = new Schema(
     s_phone_number: { type: String, trim: true },
     s_card_number: { type: String, trim: true },
     s_home_address: { type: String, trim: true },
+    d_home_address: { type: String, trim: true },
+    d_card_number: { type: String, trim: true },
     s_origin: { type: String, trim: true },
     cost:{
       type:Number,

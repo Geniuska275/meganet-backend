@@ -13,6 +13,14 @@ const FileMetaSchema = new Schema(
   { _id: false }
 );
 
+
+
+
+
+
+
+
+
 const NgoSchema = new Schema(
   {
     first_choice: { type: String, required: true, trim: true },
@@ -24,7 +32,7 @@ const NgoSchema = new Schema(
     company_does: { type: String, trim: true },
     company_nature: { type: String, trim: true },
     dob: { type: Date },
-    Email_address: { type: String, required: true, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"] }, 
+    Email_address: { type: String, required: true, trim: true, lowercase: true, match: [/^\S+@\S+\.\S+$/, "Please provide a valid email"] },
     phone_number: { type: String, trim: true },
     origin: { type: String, trim: true },
     card_number: { type: String, trim: true },
@@ -36,6 +44,8 @@ const NgoSchema = new Schema(
     d_phone_number: { type: String, trim: true },
     d_origin: { type: String, trim: true },
     s_fullname: { type: String, trim: true },
+    b_fullname: { type: String, trim: true },
+    b_origin: { type: String, trim: true },
     s_address: { type: String, trim: true },
     s_dob: { type: Date },
     s_phone_number: { type: String, trim: true },
@@ -44,31 +54,33 @@ const NgoSchema = new Schema(
     d_home_address: { type: String, trim: true },
     d_card_number: { type: String, trim: true },
     s_origin: { type: String, trim: true },
-    cost:{
-      type:Number,
-      trim:true
+    l_origin: { type: String, trim: true },
+    s_l_origin: { type: String, trim: true },
+    cost: {
+      type: Number,
+      trim: true
     },
-    file: { 
-       originalName: String,
-       fileName: String,
-       path: String,
-       mime: String,
-       size:Number, 
-      },
+    file: {
+      originalName: String,
+      fileName: String,
+      path: String,
+      mime: String,
+      size: Number,
+    },
     file2: {
       originalName: String,
-       fileName: String,
-       path: String,
-       mime: String,
-       size:Number,
-      },
-    file3: { 
-        originalName: String,
-       fileName: String,
-       path: String,
-       mime: String,
-       size:Number,
-       },
+      fileName: String,
+      path: String,
+      mime: String,
+      size: Number,
+    },
+    file3: {
+      originalName: String,
+      fileName: String,
+      path: String,
+      mime: String,
+      size: Number,
+    },
   },
   { timestamps: true }
 );

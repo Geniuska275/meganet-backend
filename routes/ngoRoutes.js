@@ -57,8 +57,10 @@ router.post(
         s_home_address,
         d_home_address,
         d_card_number,
-
-
+        b_fullname,
+        b_origin,
+        l_origin,
+        s_l_origin,
         s_origin,
         cost
       } = req.body;
@@ -89,6 +91,12 @@ router.post(
         s_address,
         s_dob,
         s_fullname,
+        b_fullname,
+        b_origin,
+        l_origin,
+        s_l_origin,
+
+
         s_phone_number,
         s_card_number,
         s_home_address,

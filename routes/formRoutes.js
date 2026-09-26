@@ -87,7 +87,7 @@ router.post(
         s_card_number,
         s_home_address,
         cost,
-        file: req.files.file[0]
+        file: req.files.file?.[0]
           ? {
             originalName: req.files.file[0].originalname,
             fileName: req.files.file[0].filename,
@@ -96,7 +96,7 @@ router.post(
             size: req.files.file[0].size,
           }
           : null,
-        file2: req.files.file2[0]
+        file2: req.files.file2?.[0]
           ? {
             originalName: req.files.file2[0].originalname,
             fileName: req.files.file2[0].filename,
@@ -105,7 +105,7 @@ router.post(
             size: req.files.file2[0].size,
           }
           : null,
-        file3: req.files.file3[0]
+        file3: req.files.file3?.[0]
           ? {
             originalName: req.files.file3[0].originalname,
             fileName: req.files.file3[0].filename,

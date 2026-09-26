@@ -55,6 +55,10 @@ router.post(
         s_dob,
         s_card_number,
         s_home_address,
+        company_does,
+        lga1,
+        lga2,
+        address,
         cost
       } = req.body;
 
@@ -69,6 +73,7 @@ router.post(
         Email_address,
         phone_number,
         origin,
+        address,
         card_number,
         home_address,
         Email_address2,
@@ -86,6 +91,9 @@ router.post(
         s_dob,
         s_card_number,
         s_home_address,
+        company_does,
+        lga1,
+        lga2,
         cost,
         file: req.files.file?.[0]
           ? {

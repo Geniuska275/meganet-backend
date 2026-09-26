@@ -22,6 +22,11 @@ const NamingSchema = new Schema(
     second_choice: { type: String, trim: true, required: true, },
     business_address: { type: String, trim: true, required: true, },
     company_nature: { type: String, trim: true, required: true, },
+    company_does: { type: String, trim: true, required: true, },
+    lga1: { type: String, trim: true, required: true, },
+    lga2: { type: String, trim: true, required: true, },
+    address: { type: String, trim: true, required: true, },
+
     dob: { type: Date },
     dob2: { type: Date },
     Email_address: {
